@@ -18,14 +18,14 @@ class PassengerTest {
         could this possibly be done using another test?*/
     @BeforeEach
     void setUp(){
-        myPassenger = new Passenger(0, null);
+        myPassenger = new Passenger(0);
     }
 
     //Test if Passenger age is over 16 and matches the expected age within the test
     @Test
     void testPassengerAgeSuccess(){
-        myPassenger.Age(23);
-        assertEquals(23, myPassenger.getAge());
+        Passenger newPassenger = new Passenger(23);
+        assertEquals(23, myPassenger.());
     }
 
     //Test if Passenger is under 16 and will look for Illegal Argument Exception within Passenger class
