@@ -4,10 +4,12 @@ public class Passenger {
 
     //Declare private variables - Research why private
     private int age;
+    private String name;
 
     //Constructor
-    public Passenger(int a){
+    public Passenger(int a, String n){
         age = a;
+        name = n;
     }
 
     //Age method that will check if age is over 16 otherwise it will throw illegal Argument Exception
@@ -25,6 +27,23 @@ public class Passenger {
     //Getter method that will return age from Passenger
     public int getAge(){
         return age;
+    }
+
+
+    //Name method that will check if name is over 3 characters otherwise it will throw illegal Argument Exception
+    public void Name(String nameLength){
+        this.name = nameLength;
+        if(nameLength.length() >= 3){
+            //Do i really need anything here?
+        }
+        else {
+            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
+        }
+    }
+
+    //Getter method that will return age from Passenger
+    public String getName(){
+        return name;
     }
 
 
