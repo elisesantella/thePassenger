@@ -5,10 +5,11 @@ public class Passenger {
     private int age;
     private String name;
     private String phone;
+    private String ID;
 
     /*Changed method to include all variables because we want the user to be prompt to enter all information
     at once not individually using different methods*/
-    public Passenger(int minAge, String nameSize, String phoneNum){
+    public Passenger(int minAge, String nameSize, String phoneNum, String idNum){
         if(minAge > 16){
             this.age = minAge;
         }
@@ -28,7 +29,14 @@ public class Passenger {
             this.phone = phoneNum;
         }
         else{
-            throw new IllegalArgumentException("Phone number MUST be a minimum of 10 characters");
+            throw new IllegalArgumentException("Phone number MUST be a minimum of 7 characters");
+        }
+
+        if(idNum.length() >= 10){
+            this.ID = idNum;
+        }
+        else{
+            throw new IllegalArgumentException("ID MUST be a minimum of 10 characters");
         }
     }
 
@@ -45,6 +53,11 @@ public class Passenger {
     //Getter method that will return phone number from Passenger
     public String getPhone(){
         return phone;
+    }
+
+    //Getter method that will return ID from Passenger
+    public String getID(){
+        return ID;
     }
 
 }
