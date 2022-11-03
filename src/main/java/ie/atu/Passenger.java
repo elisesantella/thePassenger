@@ -1,26 +1,34 @@
 package ie.atu;
-
 public class Passenger {
 
     //Declare private variables - Research why private
     private int age;
     private String name;
+    private String phone;
 
-    //Constructor
-    public Passenger(int a, String n){
-        age = a;
-        name = n;
-    }
-
-    //Age method that will check if age is over 16 otherwise it will throw illegal Argument Exception
-    //Research a clearer understanding on Illegal Argument Exception
-    public void Age(int minAge){
-        this.age = minAge;
+    /*Changed method to include all variables because we want the user to be prompt to enter all information
+    at once not individually using different methods*/
+    public Passenger(int minAge, String nameSize, String phoneNum){
         if(minAge > 16){
-            //Do i really need anything here?
+            this.age = minAge;
         }
-        else {
+        else{
             throw new IllegalArgumentException("Passenger is too young to fly. MUST be over 16");
+        }
+
+        //name = nameSize;
+        if(nameSize.length() >= 3){
+            this.name = nameSize;
+        }
+        else{
+            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
+        }
+
+        if(phoneNum.length() >= 7){
+            this.phone = phoneNum;
+        }
+        else{
+            throw new IllegalArgumentException("Phone number MUST be a minimum of 10 characters");
         }
     }
 
@@ -29,22 +37,14 @@ public class Passenger {
         return age;
     }
 
-
-    //Name method that will check if name is over 3 characters otherwise it will throw illegal Argument Exception
-    public void Name(String nameLength){
-        this.name = nameLength;
-        if(nameLength.length() >= 3){
-            //Do i really need anything here?
-        }
-        else {
-            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
-        }
-    }
-
-    //Getter method that will return age from Passenger
+    //Getter method that will return name from Passenger
     public String getName(){
         return name;
     }
 
+    //Getter method that will return phone number from Passenger
+    public String getPhone(){
+        return phone;
+    }
 
 }
